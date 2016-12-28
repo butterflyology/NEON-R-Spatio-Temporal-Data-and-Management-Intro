@@ -9,24 +9,26 @@
 require(knitr)
 
 #################### Set up Input Variables #############################
-#Inputs - Where the git repo is on your computer
-gitRepoPath <-"~/Documents/GitHub/NEON-R-Spatio-Temporal-Data-and-Management-Intro/"
+# Inputs - Where the git repo is on your computer
+# gitRepoPath <-"~/Documents/github/R-Spatio-Temporal-Data-and-Management-Intro/"
+gitRepoPath <-"~/Documents/github/dev-earthlab-site/"
+
 
 #jekyll will only render md posts that begin with a date. Add one.
-add.date <- "2016-01-12-SI"
+add.date <- "2016-11-28-SI"
 
 #set working dir - this is where the data are located
-wd <- "~/Documents/data/1_DataPortal_Workshop/1_WorkshopData"
+wd <- "~/Documents/data"
 
 
 ################### CONFIG BELOW IS REQUIRED BY JEKYLL - DON"T CHANGE ##########
-#set data working dir
+# set data working dir
 setwd(wd)
 
 # set series subdir
 subDir <- "dc-spatio-temporal-intro/"
 
-#don't change - this is the posts dir location required by jekyll
+# don't change - this is the posts dir location required by jekyll
 postsDir <- paste0("_posts/R/", subDir)
 codeDir <- paste0("code/R/", subDir)
 
@@ -80,11 +82,11 @@ if (file.exists(paste0(gitRepoPath, codeDir))){
 # NOTE: comment this out if you just want to rebuild one lesson
 
 # clean out images dir to avoid the issue of duplicate files 
-#unlink(paste0(gitRepoPath, postsDir,"*"), recursive = TRUE)
+unlink(paste0(gitRepoPath, postsDir,"*"), recursive = TRUE)
 # clean out images dir to avoid the issue of duplicate files 
-#unlink(paste0(gitRepoPath, codeDir,"*"), recursive = TRUE)
+unlink(paste0(gitRepoPath, codeDir,"*"), recursive = TRUE)
 # clean out images dir to avoid the issue of duplicate files 
-#unlink(paste0(gitRepoPath, imagePath,"*"), recursive = TRUE)
+unlink(paste0(gitRepoPath, imagePath,"*"), recursive = TRUE)
 
 
 # copy image directory over
@@ -101,7 +103,7 @@ rmd.files <- list.files(gitRepoPath, pattern="*.Rmd", full.names = TRUE )
 #################### Set up Image Directory #############################
 
 # just render one file
-rmd.files <- rmd.files[5]
+# rmd.files <- rmd.files[3]
 
 for (files in rmd.files) {
   
@@ -117,7 +119,8 @@ for (files in rmd.files) {
   opts_chunk$set(fig.path = fig.path)
   opts_chunk$set(fig.cap = " ")
   # render_jekyll()
-  render_markdown(strict = TRUE)
+  render_markdown(strict = FALSE, fence_char = "`")
+  #render_jekyll(highlight = "rouge")
   # create the markdown file name - add a date at the beginning to Jekyll recognizes
   # it as a post
   mdFile <- paste0(gitRepoPath,postsDir,add.date ,sub(".Rmd$", "", input), ".md")
@@ -133,7 +136,7 @@ for (files in rmd.files) {
   }
   
   # copy rmd file to the rmd directory on git
-  file.copy(paste0(wd,"/",basename(files)), gitRepoPath, recursive=TRUE)
+  file.copy(paste0(wd, "/", basename(files)), gitRepoPath, recursive=TRUE)
   
   # delete local repo copies of RMD files just so things are cleaned up??
   

@@ -1,0 +1,46 @@
+# main links links
+main:
+
+  - title: "Archive"
+    url: /archive/
+
+  - title: "Browse by package"
+    url: /tags/
+
+  - title: "Browse by category"
+    url: /categories/
+
+  - title: "About"
+    url: /about/
+
+
+spatial-intro:
+
+  - title: Spatial Data Intro
+    children:
+      - title: "Raster vs Vector"
+        url: /R/spatial-data-formats
+      - title: "About Shapefiles"
+        url: /R/about-shapefiles
+      - title: "Shapefile Structure"
+        url: /R/components-of-a-shapefile
+      - title: "Raster Data"
+        url: /R/about-raster-data
+
+  - title: Metadata
+    children:
+      - title: "About Metadata"
+        url: /R/metadata-file-formats-structures
+      - title: "Embedded Metadata"
+        url: /R/embedded-metadata-geotiff
+      - title: "Structured Metadata"
+        url: /R/structured-metadata-EML
+
+  - title: Coordinate Reference Systems
+    children:
+      - title: "Intro to CRS"
+        url: /R/intro-to-coordinate-reference-systems
+      - title: "Geographic vs Projected"
+        url: /R/key-spatial-metadata
+      - title: "CRS formats"
+        url: /R/intro-to-CRS-formats-proj4-EPSG-R
