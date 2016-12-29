@@ -13,9 +13,7 @@ output:
       html_document
 ---
 
-```{r setup, include = FALSE, fig.align = "center"}
-knitr::opts_chunk$set(echo = TRUE, fig.align = "center")
-```
+
 
 > ## Prerequisites
 > 
@@ -39,7 +37,8 @@ After completing this activity, you will:
 - know stuff
 
 ### Install R Packages
-```{r install, eval = FALSE}
+
+```r
 install.packages("raster")
 install.packages("rgdal")
 install.packages("sp")
@@ -49,9 +48,34 @@ install.packages(c("raster", "rgdal", "sp"))
 ```
 
 Now that we have installed the `R` packages, we need to load them.
-```{r load}
+
+```r
 library("raster")
+```
+
+```
+## Loading required package: methods
+```
+
+```
+## Loading required package: sp
+```
+
+```r
 library("rgdal")
+```
+
+```
+## rgdal: version: 1.2-5, (SVN revision 648)
+##  Geospatial Data Abstraction Library extensions to R successfully loaded
+##  Loaded GDAL runtime: GDAL 1.11.5, released 2016/07/01
+##  Path to GDAL shared files: /usr/local/Cellar/gdal/1.11.5_1/share/gdal
+##  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
+##  Path to PROJ.4 shared files: (autodetected)
+##  Linking to sp version: 1.2-3
+```
+
+```r
 library("sp")
 ```
 
